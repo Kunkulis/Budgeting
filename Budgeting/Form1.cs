@@ -1,11 +1,13 @@
-﻿using System.Data;
+﻿using System.ComponentModel;
+using System.Data;
 using System.Data.SQLite;
 
 namespace Budgeting
 {
     public partial class Form1 : Form
     {
-        List<BudgetModel> budgets= new List<BudgetModel>();
+        //List<BudgetModel> budgets= new List<BudgetModel>();
+        List<BudgetModel> budgets = new List<BudgetModel>();
         public Form1()
         {
             InitializeComponent();
@@ -15,18 +17,10 @@ namespace Budgeting
         {
 
             budgets = SqLiteDataAccess.LoadBudget();
+            var bindingBudgets = new BindingList<BudgetModel>(budgets);
+            var source = new BindingSource(bindingBudgets,null);            
 
-            SQLiteConnection conn = new SQLiteConnection(@"data source=C:\Users\Alvis\source\repos\Budgeting\DB\budget.db");
-            conn.Open();
-            var query = "SELECT * from test";
-            SQLiteCommand cmd = new SQLiteCommand(query, conn);
-
-            DataTable dt = new DataTable();
-
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
-            adapter.Fill(dt);
-
-            dataGridView1.DataSource = dt;
+            //dataGridView1.DataSource = source;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -39,6 +33,12 @@ namespace Budgeting
             ent.SubCategory = "SubTest";            
 
             SqLiteDataAccess.SaveEntry(ent);
+        }
+
+        private void bt_chngCetegory_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
         }
     }
 }
