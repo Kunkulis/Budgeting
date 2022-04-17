@@ -1,6 +1,6 @@
 ﻿namespace Budgeting
 {
-    partial class Form2
+    partial class CategoryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,6 @@
             // dgv_category
             // 
             this.dgv_category.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_category.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgv_category.Location = new System.Drawing.Point(33, 27);
             this.dgv_category.Name = "dgv_category";
             this.dgv_category.RowTemplate.Height = 25;
@@ -53,15 +52,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form2
+            // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgv_category);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "CategoryForm";
+            this.Text = "Category";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_category)).EndInit();
             this.ResumeLayout(false);
 

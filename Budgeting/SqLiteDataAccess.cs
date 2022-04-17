@@ -22,6 +22,15 @@ namespace Budgeting
             }
         }
 
+        public static List<SubCategoryModel> LoadSubCategory()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<SubCategoryModel>("select * from SubCategory", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
         public static List<CategoryModel> LoadCategory()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -31,9 +40,27 @@ namespace Budgeting
             }
         }
 
-        public static void SaveEntry(DataGridView dgv_category)
+        internal static void SaveSubCategory(DataGridView dgv_SubCategory)
         {
-            ClearDB();
+            ClearDB("SubCategory");
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                using (SQLiteCommand cmd = new SQLiteCommand())
+                {
+                    cmd.Connection = cnn;
+                    cnn.Open();
+                    for (int i = 0; i < dgv_SubCategory.RowCount - 1; i++)
+                    {
+                        cmd.CommandText = $"INSERT INTO SubCategory (ID, ParentID, SubCategory) VALUES ({dgv_SubCategory.Rows[i].Cells["Id"].Value},{dgv_SubCategory.Rows[i].Cells["ParentId"].Value},'{dgv_SubCategory.Rows[i].Cells["SubCategory"].Value}')";
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+
+        public static void SaveCategory(DataGridView dgv_category)
+        {
+            ClearDB("Category");
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 using (SQLiteCommand cmd = new SQLiteCommand())
@@ -49,7 +76,7 @@ namespace Budgeting
             }
         }
 
-        private static void ClearDB()
+        private static void ClearDB(string db)
         {
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -57,7 +84,7 @@ namespace Budgeting
                 {
                     cmd.Connection = cnn;
                     cnn.Open();
-                    cmd.CommandText = "DELETE FROM Category";
+                    cmd.CommandText = $"DELETE FROM {db}";
                     cmd.ExecuteNonQuery();
                 }
             }

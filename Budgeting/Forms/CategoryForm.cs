@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Budgeting
 {
-    public partial class Form2 : Form
+    public partial class CategoryForm : Form
     {
-        List<CategoryModel> category = new List<CategoryModel>();
-        public Form2()
+        List<CategoryModel> category = new List<CategoryModel>();        
+        public CategoryForm()
         {
             InitializeComponent();
             category = SqLiteDataAccess.LoadCategory();
@@ -25,7 +25,7 @@ namespace Budgeting
 
         private void button1_Click(object sender, EventArgs e)
         {            
-            SqLiteDataAccess.SaveEntry(dgv_category);
+            SqLiteDataAccess.SaveCategory(dgv_category);
         }
     }
 }

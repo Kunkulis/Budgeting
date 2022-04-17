@@ -4,13 +4,19 @@ using System.Data.SQLite;
 
 namespace Budgeting
 {
-    public partial class Form1 : Form
-    {
-        //List<BudgetModel> budgets= new List<BudgetModel>();
+    public partial class MainForm : Form
+    {        
         List<BudgetModel> budgets = new List<BudgetModel>();
-        public Form1()
+        List<CategoryModel> categories = new List<CategoryModel>();
+        public MainForm()
         {
             InitializeComponent();
+            categories = SqLiteDataAccess.LoadCategory();
+            var categoryList = categories.Select(x=>x.Category).ToList();
+            var bindingCategory = new BindingSource();
+            bindingCategory.DataSource = categoryList;
+
+            cb_category.DataSource = bindingCategory.DataSource;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,8 +43,14 @@ namespace Budgeting
 
         private void bt_chngCetegory_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
+            CategoryForm f2 = new CategoryForm();
             f2.ShowDialog();
+        }
+
+        private void bt_amendSubCategories_Click(object sender, EventArgs e)
+        {
+            SubCategoryForm f3 = new SubCategoryForm();
+            f3.ShowDialog();
         }
     }
 }

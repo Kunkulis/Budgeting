@@ -1,6 +1,6 @@
 ﻿namespace Budgeting
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -31,6 +31,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.AddExpence = new System.Windows.Forms.TabPage();
+            this.bt_chngCetegory = new System.Windows.Forms.Button();
             this.cb_category = new System.Windows.Forms.ComboBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -42,7 +43,7 @@
             this.lb_date = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.bt_chngCetegory = new System.Windows.Forms.Button();
+            this.bt_amendSubCategories = new System.Windows.Forms.Button();
             this.AddExpence.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -70,6 +71,7 @@
             // 
             // AddExpence
             // 
+            this.AddExpence.Controls.Add(this.bt_amendSubCategories);
             this.AddExpence.Controls.Add(this.bt_chngCetegory);
             this.AddExpence.Controls.Add(this.cb_category);
             this.AddExpence.Controls.Add(this.statusStrip1);
@@ -87,6 +89,16 @@
             this.AddExpence.TabIndex = 0;
             this.AddExpence.Text = "Add Expence";
             this.AddExpence.UseVisualStyleBackColor = true;
+            // 
+            // bt_chngCetegory
+            // 
+            this.bt_chngCetegory.Location = new System.Drawing.Point(1004, 60);
+            this.bt_chngCetegory.Name = "bt_chngCetegory";
+            this.bt_chngCetegory.Size = new System.Drawing.Size(124, 36);
+            this.bt_chngCetegory.TabIndex = 11;
+            this.bt_chngCetegory.Text = "Amend Categories";
+            this.bt_chngCetegory.UseVisualStyleBackColor = true;
+            this.bt_chngCetegory.Click += new System.EventHandler(this.bt_chngCetegory_Click);
             // 
             // cb_category
             // 
@@ -186,24 +198,24 @@
             this.tabControl1.Size = new System.Drawing.Size(1165, 643);
             this.tabControl1.TabIndex = 0;
             // 
-            // bt_chngCetegory
+            // bt_amendSubCategories
             // 
-            this.bt_chngCetegory.Location = new System.Drawing.Point(1004, 60);
-            this.bt_chngCetegory.Name = "bt_chngCetegory";
-            this.bt_chngCetegory.Size = new System.Drawing.Size(124, 36);
-            this.bt_chngCetegory.TabIndex = 11;
-            this.bt_chngCetegory.Text = "Amend Categories";
-            this.bt_chngCetegory.UseVisualStyleBackColor = true;
-            this.bt_chngCetegory.Click += new System.EventHandler(this.bt_chngCetegory_Click);
+            this.bt_amendSubCategories.Location = new System.Drawing.Point(986, 113);
+            this.bt_amendSubCategories.Name = "bt_amendSubCategories";
+            this.bt_amendSubCategories.Size = new System.Drawing.Size(141, 36);
+            this.bt_amendSubCategories.TabIndex = 12;
+            this.bt_amendSubCategories.Text = "Amend Sub-Categories";
+            this.bt_amendSubCategories.UseVisualStyleBackColor = true;
+            this.bt_amendSubCategories.Click += new System.EventHandler(this.bt_amendSubCategories_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1189, 667);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainForm";
+            this.Text = "Budgetting";
             this.AddExpence.ResumeLayout(false);
             this.AddExpence.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -230,5 +242,6 @@
         private Button button2;
         private TabControl tabControl1;
         private Button bt_chngCetegory;
+        private Button bt_amendSubCategories;
     }
 }
