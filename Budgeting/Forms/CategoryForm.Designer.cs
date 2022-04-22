@@ -30,6 +30,7 @@
         {
             this.dgv_category = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_category)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +53,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // entityCommand1
+            // 
+            this.entityCommand1.CommandTimeout = 0;
+            this.entityCommand1.CommandTree = null;
+            this.entityCommand1.Connection = null;
+            this.entityCommand1.EnablePlanCaching = true;
+            this.entityCommand1.Transaction = null;
+            // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -61,6 +70,7 @@
             this.Controls.Add(this.dgv_category);
             this.Name = "CategoryForm";
             this.Text = "Category";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CategoryForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_category)).EndInit();
             this.ResumeLayout(false);
 
@@ -70,5 +80,6 @@
 
         private DataGridView dgv_category;
         private Button button1;
+        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
     }
 }

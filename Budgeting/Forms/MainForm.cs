@@ -11,12 +11,7 @@ namespace Budgeting
         public MainForm()
         {
             InitializeComponent();
-            categories = SqLiteDataAccess.LoadCategory();
-            var categoryList = categories.Select(x=>x.Category).ToList();
-            var bindingCategory = new BindingSource();
-            bindingCategory.DataSource = categoryList;
-
-            cb_category.DataSource = bindingCategory.DataSource;
+            PerformRefresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,7 +38,7 @@ namespace Budgeting
 
         private void bt_chngCetegory_Click(object sender, EventArgs e)
         {
-            CategoryForm f2 = new CategoryForm();
+            CategoryForm f2 = new CategoryForm(this);
             f2.ShowDialog();
         }
 
@@ -51,6 +46,16 @@ namespace Budgeting
         {
             SubCategoryForm f3 = new SubCategoryForm();
             f3.ShowDialog();
+        }
+
+        public void PerformRefresh()
+        {
+            this.categories = SqLiteDataAccess.LoadCategory();
+            var categoryList = categories.Select(x => x.Category).ToList();
+            var bindingCategory = new BindingSource();
+            bindingCategory.DataSource = categoryList;
+
+            cb_category.DataSource = bindingCategory.DataSource;
         }
     }
 }
