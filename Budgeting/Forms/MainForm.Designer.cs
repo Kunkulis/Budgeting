@@ -28,22 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.Entries = new System.Windows.Forms.TabPage();
+            this.dgv_Entries = new System.Windows.Forms.DataGridView();
             this.AddExpence = new System.Windows.Forms.TabPage();
+            this.tb_Comment = new System.Windows.Forms.TextBox();
+            this.tb_Amount = new System.Windows.Forms.TextBox();
+            this.cb_subCategory = new System.Windows.Forms.ComboBox();
+            this.bt_amendSubCategories = new System.Windows.Forms.Button();
             this.bt_chngCetegory = new System.Windows.Forms.Button();
             this.cb_category = new System.Windows.Forms.ComboBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_EntrieDate = new System.Windows.Forms.DateTimePicker();
             this.lb_subCategory = new System.Windows.Forms.Label();
             this.lb_amount = new System.Windows.Forms.Label();
             this.lb_comment = new System.Windows.Forms.Label();
             this.lb_category = new System.Windows.Forms.Label();
             this.lb_date = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bt_Add = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.bt_amendSubCategories = new System.Windows.Forms.Button();
+            this.Entries.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Entries)).BeginInit();
             this.AddExpence.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -59,29 +68,66 @@
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // Entries
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1157, 615);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.Entries.Controls.Add(this.dgv_Entries);
+            this.Entries.Location = new System.Drawing.Point(4, 24);
+            this.Entries.Name = "Entries";
+            this.Entries.Padding = new System.Windows.Forms.Padding(3);
+            this.Entries.Size = new System.Drawing.Size(1157, 615);
+            this.Entries.TabIndex = 2;
+            this.Entries.Text = "Entries";
+            this.Entries.UseVisualStyleBackColor = true;
+            // 
+            // dgv_Entries
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Entries.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_Entries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Entries.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv_Entries.Location = new System.Drawing.Point(0, 0);
+            this.dgv_Entries.Name = "dgv_Entries";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Entries.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_Entries.RowTemplate.Height = 25;
+            this.dgv_Entries.Size = new System.Drawing.Size(268, 615);
+            this.dgv_Entries.TabIndex = 0;
             // 
             // AddExpence
             // 
+            this.AddExpence.Controls.Add(this.tb_Comment);
+            this.AddExpence.Controls.Add(this.tb_Amount);
+            this.AddExpence.Controls.Add(this.cb_subCategory);
             this.AddExpence.Controls.Add(this.bt_amendSubCategories);
             this.AddExpence.Controls.Add(this.bt_chngCetegory);
             this.AddExpence.Controls.Add(this.cb_category);
             this.AddExpence.Controls.Add(this.statusStrip1);
-            this.AddExpence.Controls.Add(this.dateTimePicker1);
+            this.AddExpence.Controls.Add(this.dtp_EntrieDate);
             this.AddExpence.Controls.Add(this.lb_subCategory);
             this.AddExpence.Controls.Add(this.lb_amount);
             this.AddExpence.Controls.Add(this.lb_comment);
             this.AddExpence.Controls.Add(this.lb_category);
             this.AddExpence.Controls.Add(this.lb_date);
-            this.AddExpence.Controls.Add(this.button2);
+            this.AddExpence.Controls.Add(this.bt_Add);
             this.AddExpence.Location = new System.Drawing.Point(4, 24);
             this.AddExpence.Name = "AddExpence";
             this.AddExpence.Padding = new System.Windows.Forms.Padding(3);
@@ -89,6 +135,40 @@
             this.AddExpence.TabIndex = 0;
             this.AddExpence.Text = "Add Expence";
             this.AddExpence.UseVisualStyleBackColor = true;
+            // 
+            // tb_Comment
+            // 
+            this.tb_Comment.Location = new System.Drawing.Point(191, 234);
+            this.tb_Comment.Multiline = true;
+            this.tb_Comment.Name = "tb_Comment";
+            this.tb_Comment.Size = new System.Drawing.Size(200, 100);
+            this.tb_Comment.TabIndex = 15;
+            // 
+            // tb_Amount
+            // 
+            this.tb_Amount.Location = new System.Drawing.Point(191, 179);
+            this.tb_Amount.Name = "tb_Amount";
+            this.tb_Amount.Size = new System.Drawing.Size(200, 23);
+            this.tb_Amount.TabIndex = 14;
+            this.tb_Amount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_Amount_KeyPress);
+            // 
+            // cb_subCategory
+            // 
+            this.cb_subCategory.FormattingEnabled = true;
+            this.cb_subCategory.Location = new System.Drawing.Point(191, 131);
+            this.cb_subCategory.Name = "cb_subCategory";
+            this.cb_subCategory.Size = new System.Drawing.Size(200, 23);
+            this.cb_subCategory.TabIndex = 13;
+            // 
+            // bt_amendSubCategories
+            // 
+            this.bt_amendSubCategories.Location = new System.Drawing.Point(986, 113);
+            this.bt_amendSubCategories.Name = "bt_amendSubCategories";
+            this.bt_amendSubCategories.Size = new System.Drawing.Size(141, 36);
+            this.bt_amendSubCategories.TabIndex = 12;
+            this.bt_amendSubCategories.Text = "Amend Sub-Categories";
+            this.bt_amendSubCategories.UseVisualStyleBackColor = true;
+            this.bt_amendSubCategories.Click += new System.EventHandler(this.bt_amendSubCategories_Click);
             // 
             // bt_chngCetegory
             // 
@@ -107,6 +187,7 @@
             this.cb_category.Name = "cb_category";
             this.cb_category.Size = new System.Drawing.Size(200, 23);
             this.cb_category.TabIndex = 10;
+            this.cb_category.SelectedIndexChanged += new System.EventHandler(this.cb_category_SelectedIndexChanged);
             // 
             // statusStrip1
             // 
@@ -123,12 +204,12 @@
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             // 
-            // dateTimePicker1
+            // dtp_EntrieDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(191, 35);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dtp_EntrieDate.Location = new System.Drawing.Point(191, 35);
+            this.dtp_EntrieDate.Name = "dtp_EntrieDate";
+            this.dtp_EntrieDate.Size = new System.Drawing.Size(200, 23);
+            this.dtp_EntrieDate.TabIndex = 8;
             // 
             // lb_subCategory
             // 
@@ -151,7 +232,7 @@
             // lb_comment
             // 
             this.lb_comment.AutoSize = true;
-            this.lb_comment.Location = new System.Drawing.Point(39, 242);
+            this.lb_comment.Location = new System.Drawing.Point(39, 237);
             this.lb_comment.Name = "lb_comment";
             this.lb_comment.Size = new System.Drawing.Size(61, 15);
             this.lb_comment.TabIndex = 5;
@@ -175,21 +256,21 @@
             this.lb_date.TabIndex = 3;
             this.lb_date.Text = "Date";
             // 
-            // button2
+            // bt_Add
             // 
-            this.button2.Location = new System.Drawing.Point(1052, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.bt_Add.Location = new System.Drawing.Point(1052, 21);
+            this.bt_Add.Name = "bt_Add";
+            this.bt_Add.Size = new System.Drawing.Size(75, 23);
+            this.bt_Add.TabIndex = 2;
+            this.bt_Add.Text = "Add";
+            this.bt_Add.UseVisualStyleBackColor = true;
+            this.bt_Add.Click += new System.EventHandler(this.bt_Add_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.AccessibleName = "";
             this.tabControl1.Controls.Add(this.AddExpence);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.Entries);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
@@ -197,16 +278,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1165, 643);
             this.tabControl1.TabIndex = 0;
-            // 
-            // bt_amendSubCategories
-            // 
-            this.bt_amendSubCategories.Location = new System.Drawing.Point(986, 113);
-            this.bt_amendSubCategories.Name = "bt_amendSubCategories";
-            this.bt_amendSubCategories.Size = new System.Drawing.Size(141, 36);
-            this.bt_amendSubCategories.TabIndex = 12;
-            this.bt_amendSubCategories.Text = "Amend Sub-Categories";
-            this.bt_amendSubCategories.UseVisualStyleBackColor = true;
-            this.bt_amendSubCategories.Click += new System.EventHandler(this.bt_amendSubCategories_Click);
             // 
             // MainForm
             // 
@@ -216,6 +287,8 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "Budgetting";
+            this.Entries.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Entries)).EndInit();
             this.AddExpence.ResumeLayout(false);
             this.AddExpence.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -228,20 +301,24 @@
         #endregion
 
         private TabPage tabPage4;
-        private TabPage tabPage3;
+        private TabPage Entries;
         private TabPage AddExpence;
         private ComboBox cb_category;
         private StatusStrip statusStrip1;
         private ToolStripProgressBar toolStripProgressBar1;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtp_EntrieDate;
         private Label lb_subCategory;
         private Label lb_amount;
         private Label lb_comment;
         private Label lb_category;
         private Label lb_date;
-        private Button button2;
+        private Button bt_Add;
         private TabControl tabControl1;
         private Button bt_chngCetegory;
         private Button bt_amendSubCategories;
+        private ComboBox cb_subCategory;
+        private TextBox tb_Amount;
+        private TextBox tb_Comment;
+        private DataGridView dgv_Entries;
     }
 }
