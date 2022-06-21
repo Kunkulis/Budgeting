@@ -19,7 +19,6 @@ namespace Budgeting
 
         private void InitializeEntries()
         {
-            //TODO: Fix the binding
             entries = SqLiteDataAccess.LoadEntries();
             var bindingBudgets = new BindingList<EntriesModel>(entries);
             var source = new BindingSource(bindingBudgets, null);
@@ -84,8 +83,8 @@ namespace Budgeting
             var ent = new EntriesModel();
 
             ent.EntryAmount = float.Parse(tb_Amount.Text);
-            ent.EntrySubCategory= subCategories.Where(x => x.SubCategory == cb_subCategory.SelectedItem).FirstOrDefault().Id;
-            ent.EntryCategory=categories.Where(x => x.Category == cb_category.SelectedItem).FirstOrDefault().Id;
+            ent.EntrySubCategory = subCategories.Where(x => x.SubCategory == cb_subCategory.SelectedItem).FirstOrDefault().SubCategory;
+            ent.EntryCategory = categories.Where(x => x.Category == cb_category.SelectedItem).FirstOrDefault().Category;
             ent.EntryComment = tb_Comment.Text;
             ent.EntryDate = dtp_EntrieDate.Value;
 
@@ -93,6 +92,26 @@ namespace Budgeting
 
             tb_Amount.Clear();
             tb_Comment.Clear();
+            InitializeEntries();
+        }
+
+        private void bt_DeleteEntries_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgv_Entries.Rows)
+            {
+                if (row.Cells["Delete"].Value is bool value)
+                {
+                    var entry = new EntriesModel();
+                    entry.EntryDate = Convert.ToDateTime(row.Cells["EntryDate"].Value);
+                    entry.EntryCategory = row.Cells["EntryCategory"].Value.ToString();
+                    entry.EntrySubCategory = row.Cells["EntrySubCategory"].Value.ToString();
+                    entry.EntryAmount = float.Parse(row.Cells["EntryAmount"].Value.ToString());
+                    entry.EntryComment = row.Cells["EntryComment"].Value.ToString();
+                    SqLiteDataAccess.DeleteEntries(entry);
+                }
+            }
+
+            InitializeEntries();
         }
     }
 }

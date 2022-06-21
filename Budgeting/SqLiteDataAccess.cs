@@ -96,16 +96,33 @@ namespace Budgeting
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 using (SQLiteCommand cmd = new SQLiteCommand())
-                {                  
+                {
 
                     cmd.Connection = cnn;
                     cnn.Open();
-                    cmd.CommandText = $"insert into Entries ('Date', 'Category', 'SubCategory', 'Amount', 'Comment') values ('{entry.EntryDate}', {entry.EntryCategory}, {entry.EntrySubCategory}, {entry.EntryAmount}, {entry.EntryComment})";
+                    cmd.CommandText = $"insert into Entries ('EntryDate', 'EntryCategory', 'EntrySubCategory', 'EntryAmount', 'EntryComment') values ('{entry.EntryDate}', '{entry.EntryCategory}', '{entry.EntrySubCategory}', {entry.EntryAmount}, '{entry.EntryComment}')";
                     cmd.ExecuteNonQuery();
                     cnn.Close();
                 }
             }
         }
+
+        public static void DeleteEntries(EntriesModel checkedEntry)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                using (SQLiteCommand cmd = new SQLiteCommand())
+                {
+
+                    cmd.Connection = cnn;
+                    cnn.Open();
+                    cmd.CommandText = $"DELETE FROM Entries where 'EntryDate'='{checkedEntry.EntryDate}' and 'EntryCategory'='{checkedEntry.EntryCategory}' and 'EntrySubCategory' ='{checkedEntry.EntrySubCategory}' and 'EntryAmount'='{checkedEntry.EntryAmount}' and 'EntryComment'='{checkedEntry.EntryComment}'";
+                    cmd.ExecuteNonQuery();
+                    cnn.Close();
+                }
+            }
+        }
+
         private static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
