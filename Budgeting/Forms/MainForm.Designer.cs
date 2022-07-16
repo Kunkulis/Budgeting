@@ -33,8 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.Entries = new System.Windows.Forms.TabPage();
+            this.bt_DeleteEntries = new System.Windows.Forms.Button();
             this.dgv_Entries = new System.Windows.Forms.DataGridView();
             this.AddExpence = new System.Windows.Forms.TabPage();
+            this.bt_import = new System.Windows.Forms.Button();
             this.tb_Comment = new System.Windows.Forms.TextBox();
             this.tb_Amount = new System.Windows.Forms.TextBox();
             this.cb_subCategory = new System.Windows.Forms.ComboBox();
@@ -51,7 +53,6 @@
             this.lb_date = new System.Windows.Forms.Label();
             this.bt_Add = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.bt_DeleteEntries = new System.Windows.Forms.Button();
             this.Entries.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Entries)).BeginInit();
             this.AddExpence.SuspendLayout();
@@ -80,6 +81,16 @@
             this.Entries.TabIndex = 2;
             this.Entries.Text = "Entries";
             this.Entries.UseVisualStyleBackColor = true;
+            // 
+            // bt_DeleteEntries
+            // 
+            this.bt_DeleteEntries.Location = new System.Drawing.Point(1012, 6);
+            this.bt_DeleteEntries.Name = "bt_DeleteEntries";
+            this.bt_DeleteEntries.Size = new System.Drawing.Size(113, 35);
+            this.bt_DeleteEntries.TabIndex = 1;
+            this.bt_DeleteEntries.Text = "Delete Selected";
+            this.bt_DeleteEntries.UseVisualStyleBackColor = true;
+            this.bt_DeleteEntries.Click += new System.EventHandler(this.bt_DeleteEntries_Click);
             // 
             // dgv_Entries
             // 
@@ -116,6 +127,7 @@
             // 
             // AddExpence
             // 
+            this.AddExpence.Controls.Add(this.bt_import);
             this.AddExpence.Controls.Add(this.tb_Comment);
             this.AddExpence.Controls.Add(this.tb_Amount);
             this.AddExpence.Controls.Add(this.cb_subCategory);
@@ -137,6 +149,16 @@
             this.AddExpence.TabIndex = 0;
             this.AddExpence.Text = "Add Expence";
             this.AddExpence.UseVisualStyleBackColor = true;
+            // 
+            // bt_import
+            // 
+            this.bt_import.Location = new System.Drawing.Point(450, 36);
+            this.bt_import.Name = "bt_import";
+            this.bt_import.Size = new System.Drawing.Size(141, 36);
+            this.bt_import.TabIndex = 16;
+            this.bt_import.Text = "Import";
+            this.bt_import.UseVisualStyleBackColor = true;
+            this.bt_import.Click += new System.EventHandler(this.bt_import_Click);
             // 
             // tb_Comment
             // 
@@ -164,7 +186,7 @@
             // 
             // bt_amendSubCategories
             // 
-            this.bt_amendSubCategories.Location = new System.Drawing.Point(986, 113);
+            this.bt_amendSubCategories.Location = new System.Drawing.Point(450, 120);
             this.bt_amendSubCategories.Name = "bt_amendSubCategories";
             this.bt_amendSubCategories.Size = new System.Drawing.Size(141, 36);
             this.bt_amendSubCategories.TabIndex = 12;
@@ -174,9 +196,9 @@
             // 
             // bt_chngCetegory
             // 
-            this.bt_chngCetegory.Location = new System.Drawing.Point(1004, 60);
+            this.bt_chngCetegory.Location = new System.Drawing.Point(450, 78);
             this.bt_chngCetegory.Name = "bt_chngCetegory";
-            this.bt_chngCetegory.Size = new System.Drawing.Size(124, 36);
+            this.bt_chngCetegory.Size = new System.Drawing.Size(141, 36);
             this.bt_chngCetegory.TabIndex = 11;
             this.bt_chngCetegory.Text = "Amend Categories";
             this.bt_chngCetegory.UseVisualStyleBackColor = true;
@@ -260,7 +282,7 @@
             // 
             // bt_Add
             // 
-            this.bt_Add.Location = new System.Drawing.Point(1052, 21);
+            this.bt_Add.Location = new System.Drawing.Point(316, 358);
             this.bt_Add.Name = "bt_Add";
             this.bt_Add.Size = new System.Drawing.Size(75, 23);
             this.bt_Add.TabIndex = 2;
@@ -281,21 +303,11 @@
             this.tabControl1.Size = new System.Drawing.Size(1165, 643);
             this.tabControl1.TabIndex = 0;
             // 
-            // bt_DeleteEntries
-            // 
-            this.bt_DeleteEntries.Location = new System.Drawing.Point(1012, 6);
-            this.bt_DeleteEntries.Name = "bt_DeleteEntries";
-            this.bt_DeleteEntries.Size = new System.Drawing.Size(113, 35);
-            this.bt_DeleteEntries.TabIndex = 1;
-            this.bt_DeleteEntries.Text = "Delete Selected";
-            this.bt_DeleteEntries.UseVisualStyleBackColor = true;
-            this.bt_DeleteEntries.Click += new System.EventHandler(this.bt_DeleteEntries_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1189, 667);
+            this.ClientSize = new System.Drawing.Size(688, 667);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "Budgetting";
@@ -333,5 +345,6 @@
         private TextBox tb_Comment;
         private DataGridView dgv_Entries;
         private Button bt_DeleteEntries;
+        private Button bt_import;
     }
 }

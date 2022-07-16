@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
+using Budgeting.Forms;
 using Budgeting.Models;
 
 namespace Budgeting
@@ -112,6 +113,12 @@ namespace Budgeting
             }
 
             InitializeEntries();
+        }
+
+        private void bt_import_Click(object sender, EventArgs e)
+        {
+            ImportForm import = new ImportForm();
+            import.ShowDialog();
         }
     }
 }
